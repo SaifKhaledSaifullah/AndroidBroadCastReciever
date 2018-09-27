@@ -5,12 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-public class MyFristReciever extends BroadcastReceiver {
+public class MySecondReciever extends BroadcastReceiver {
+    private static final String TAG=MySecondReciever.class.getSimpleName();
 
-    private static final String TAG=MyFristReciever.class.getSimpleName();
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e(TAG,"Hello Receiver");
-
+        Log.e(TAG,"Hello From Second Receiver");
     }
 }

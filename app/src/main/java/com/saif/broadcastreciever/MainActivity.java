@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
     public void sendBroadcastMassage(View view) {
        // Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
 
-        Intent intent=new Intent("my.first.receiver");
+        Intent intent=new Intent("my.own.receiver");
         sendBroadcast(intent);
     }
 
     public void sendThirdBroadcastMassage(View view) {
         //Intent intent=new Intent(MainActivity.this,ThirdReceiver.class);
-        Intent intent=new Intent("my.third.receiver");
-        sendBroadcast(intent);
+        /*Intent intent=new Intent("my.third.receiver");
+        sendBroadcast(intent);*/
     }
 
 
