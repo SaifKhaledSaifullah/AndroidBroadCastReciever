@@ -19,14 +19,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendBroadcastMassage(View view) {
-        Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
+       // Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
+
+        Intent intent=new Intent("my.first.receiver");
         sendBroadcast(intent);
     }
 
     public void sendThirdBroadcastMassage(View view) {
-        Intent intent=new Intent(MainActivity.this,ThirdReceiver.class);
+        //Intent intent=new Intent(MainActivity.this,ThirdReceiver.class);
+        Intent intent=new Intent("my.third.receiver");
         sendBroadcast(intent);
     }
+
+
+    /* ========================   Inner class for THIRD RECEIVER ======================== */
 
     public static class ThirdReceiver extends BroadcastReceiver{
         private static String TAG=ThirdReceiver.class.getCanonicalName();
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.e(TAG,"Hello From Third Receiver");
-            Toast.makeText(context, "Hello From Third Receiver", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Hello From Third Receiver", Toast.LENGTH_SHORT).show();
 
         }
     }
