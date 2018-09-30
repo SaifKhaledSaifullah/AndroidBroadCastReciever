@@ -26,7 +26,7 @@
         <receiver android:name=".MySecondReciever">
             <intent-filter>
                 <!--<action android:name="my.first.receiver" />-->
-                <action android:name="my.own.receiver" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
             </intent-filter>
         </receiver>
         <receiver android:name=".MainActivity$ThirdReceiver">
