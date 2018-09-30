@@ -21,13 +21,30 @@ public class MainActivity extends AppCompatActivity {
     public void sendBroadcastMassage(View view) {
        // Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
 
-        Intent intent=new Intent("my.own.receiver");
+        Intent intent=new Intent("my.first.receiver");
+
+        // Sending Data from Activity to BCR using Intent
+        intent.putExtra("name","Saif Khaled Saifullah");
+        intent.putExtra("age",29);
         sendBroadcast(intent);
     }
 
     public void sendThirdBroadcastMassage(View view) {
-        //Intent intent=new Intent(MainActivity.this,ThirdReceiver.class);
+
+
+        Intent intent=new Intent(MainActivity.this,ThirdReceiver.class);
+
+        // Sending Data from Activity to BCR using Bundle
+        Bundle bundle=new Bundle();
+        bundle.putString("name","Khaled Saifullah");
+        bundle.putInt("age",29);
+        intent.putExtras(bundle);
+
+        sendBroadcast(intent);
         /*Intent intent=new Intent("my.third.receiver");
+        sendBroadcast(intent);*/
+
+        /*Intent intent=new Intent("my.own.receiver");
         sendBroadcast(intent);*/
     }
 
@@ -36,9 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
     public static class ThirdReceiver extends BroadcastReceiver{
         private static String TAG=ThirdReceiver.class.getCanonicalName();
+        private static final String DATA_TAG="BCR3 DATA";
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            // Receiving data from Activity using intent and print in LOG statement;
+
+            Log.e(DATA_TAG,intent.getStringExtra("name"));
+            Log.e(DATA_TAG,String.valueOf(intent.getIntExtra("age",0)));
+
             Log.e(TAG,"Hello From Third Receiver");
             //Toast.makeText(context, "Hello From Third Receiver", Toast.LENGTH_SHORT).show();
 
