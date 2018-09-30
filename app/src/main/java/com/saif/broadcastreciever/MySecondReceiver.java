@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-public class MySecondReciever extends BroadcastReceiver {
-    private static final String TAG=MySecondReciever.class.getSimpleName();
+public class MySecondReceiver extends BroadcastReceiver {
+    private static final String TAG=MySecondReceiver.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.e(TAG,"Hello From Second Receiver");
-        Toast.makeText(context, "Hello 2nd receiver", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "Hello 2nd receiver", Toast.LENGTH_SHORT).show();
     }
 }

@@ -12,8 +12,8 @@ public class MyFristReciever extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         // Receiving data from Activity using intent and print in LOG statement;
-        Log.e(DATA_TAG,intent.getStringExtra("name"));
-        Log.e(DATA_TAG,String.valueOf(intent.getIntExtra("age",0)));
+        //Log.e(DATA_TAG,intent.getStringExtra("name"));
+        //Log.e(DATA_TAG,String.valueOf(intent.getIntExtra("age",0)));
 
         Log.e(TAG,"Hello Receiver");
 

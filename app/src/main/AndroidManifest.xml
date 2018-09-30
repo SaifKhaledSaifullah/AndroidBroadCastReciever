@@ -18,19 +18,23 @@
         </activity>
 
         <receiver android:name=".MyFristReciever">
-            <intent-filter>
+            <intent-filter android:priority="1">
                <!-- <action android:name="my.first.receiver" />-->
-                <action android:name="my.first.receiver" />
+                <action android:name="my.own.receiver" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".MySecondReciever">
-            <intent-filter>
+        <receiver android:name=".MySecondReceiver">
+            <intent-filter android:priority="10">
                 <!--<action android:name="my.first.receiver" />-->
-                <action android:name="android.intent.action.AIRPLANE_MODE" />
+
+                <!--Action for receiving BC when Ariplane Mode is changed-->
+                <!--<action android:name="android.intent.action.AIRPLANE_MODE" />-->
+
+                <action android:name="my.own.receiver" />
             </intent-filter>
         </receiver>
         <receiver android:name=".MainActivity$ThirdReceiver">
-            <intent-filter>
+            <intent-filter android:priority="5">
                 <!--<action android:name="my.third.receiver" />-->
                 <action android:name="my.own.receiver" />
             </intent-filter>
