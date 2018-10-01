@@ -3,15 +3,15 @@ package com.saif.broadcastreciever;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG= MainActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,15 +19,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendBroadcastMassage(View view) {
-       // Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
+        // Intent intent=new Intent(MainActivity.this,MyFristReciever.class);
 
-        Intent intent=new Intent("my.own.receiver");
+        Intent intent = new Intent("my.own.receiver");
 
         // Sending Data from Activity to BCR using Intent
         /*intent.putExtra("name","Saif Khaled Saifullah");
         intent.putExtra("age",29);
         sendBroadcast(intent);*/
-        sendOrderedBroadcast(intent,null);
+        // send ordered broadcast
+
+        //sendOrderedBroadcast(intent,null);
+        Bundle b = new Bundle();
+        b.putString("job", "Developer");
+        sendOrderedBroadcast(intent, null, new MyFourthReceiver(), null, 100
+                , "Just Do It", b);
+
     }
 
     public void sendThirdBroadcastMassage(View view) {
@@ -52,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     /* ========================   Inner class for THIRD RECEIVER ======================== */
 
-    public static class ThirdReceiver extends BroadcastReceiver{
-        private static String TAG=ThirdReceiver.class.getCanonicalName();
-        private static final String DATA_TAG="BCR3 DATA";
+    public static class ThirdReceiver extends BroadcastReceiver {
+        private static String TAG = ThirdReceiver.class.getCanonicalName();
+        private static final String DATA_TAG = "BCR3 DATA";
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -63,7 +70,23 @@ public class MainActivity extends AppCompatActivity {
             //Log.e(DATA_TAG,intent.getStringExtra("name"));
             //Log.e(DATA_TAG,String.valueOf(intent.getIntExtra("age",0)));
 
-            Log.e(TAG,"Hello From Third Receiver");
+            Log.e(TAG, "Hello From Third Receiver");
+            // If ordered broadcast, then printing and modifying initial data
+
+            if (isOrderedBroadcast()) {
+                Bundle b = getResultExtras(true);
+
+                Log.e(TAG, "CODE: " + getResultCode() + ", DATA: " + getResultData() + ", BundleData: "
+                        + b.getString("job"));
+                b.putString("job", "Team Lead");
+
+                //Set up initial data for next broadcast
+                setResult(300, "Lets Chill", b);
+
+                // To cancel the broadcast
+                // abortBroadcast();
+
+            }
             //Toast.makeText(context, "Hello From Third Receiver", Toast.LENGTH_SHORT).show();
 
         }

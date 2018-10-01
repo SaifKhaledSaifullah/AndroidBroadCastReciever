@@ -39,6 +39,12 @@
                 <action android:name="my.own.receiver" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".MyFourthReceiver">
+            <intent-filter >
+                <!--<action android:name="my.third.receiver" />-->
+                <action android:name="my.own.receiver" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
