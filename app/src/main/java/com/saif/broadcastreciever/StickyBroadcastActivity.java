@@ -18,19 +18,22 @@ public class StickyBroadcastActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sticky_broadcast);
 
     }
 
     public void methodOne(View view) {
 
-        IntentFilter intentFilter = new IntentFilter();
+        /*IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         Intent intent = registerReceiver(null, intentFilter);
 
         int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         displayBatteryStatus(status);
-        Log.i(TAG, status + " ");
+        Log.i(TAG, status + " ");*/
+
+        Intent intent=new Intent("my.custom.action");
+        sendBroadcast(intent,"my.own.permission");
     }
 
     public void methodTwo(View view) {
@@ -72,7 +75,7 @@ public class StickyBroadcastActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        unregisterReceiver(batteryStatusReceiver);
+       // unregisterReceiver(batteryStatusReceiver);
     }
 }
 

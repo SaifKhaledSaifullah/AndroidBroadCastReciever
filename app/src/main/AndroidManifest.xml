@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.saif.broadcastreciever">
+    <permission android:name="my.own.permission"
+        android:protectionLevel="signature">
+
+    </permission>
 
     <application
         android:allowBackup="true"
@@ -12,6 +16,9 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".DynamictBCRActivity">
+
+        </activity>
+        <activity android:name=".StickyBroadcastActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
