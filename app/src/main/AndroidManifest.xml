@@ -19,6 +19,9 @@
 
         </activity>
         <activity android:name=".StickyBroadcastActivity">
+
+        </activity>
+        <activity android:name=".LocalBCRActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,6 +56,9 @@
                 <!--<action android:name="my.third.receiver" />-->
                 <action android:name="my.own.receiver" />
             </intent-filter>
+        </receiver>
+        <receiver android:name=".MyLocalReceiver">
+            
         </receiver>
     </application>
 
