@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class LocalBCRActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = LocalBCRActivity.class.getSimpleName();
 
     private LocalBroadcastManager mLocalBRManager;
 
